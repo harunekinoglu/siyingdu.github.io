@@ -160,12 +160,13 @@ li>a, button>a{
 }
 
 .inner {
-  background: white;
-  height: 70px;
-  width: 100%;
+  background:white;
+  height: 66px;
+  width: 96%;
   opacity: 0;
   top: 180px;
-  left: 0;
+  left: 5px;
+  bottom:5px;
   position: absolute;
   padding: 5px;
   transition: opacity .5s;
@@ -198,3 +199,7 @@ li>a, button>a{
   width:600px;
 }
 
+.border:hover
+{
+  box-shadow: inset 0 0 0 25px #53a7ea;
+}
