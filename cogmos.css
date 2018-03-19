@@ -1,0 +1,99 @@
+/*.fond{position:absolute;padding-top:85px;top:0;left:0; right:0;bottom:0;
+}
+*/
+.style_prevu_kit
+{   
+    text-align: center;
+
+    padding:20px;
+    /*float: left;*/
+    border:0 ;
+    width:120px;
+    height:120px;
+    position: relative;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1);
+    transition: all 200ms ease-in;
+    transform: scale(1);   
+    border-radius: 50%;
+    z-index: 2;
+    margin-right:25px;
+
+}
+
+
+
+
+.style_prevu_kit:hover
+{
+    box-shadow: 0px 0px 15px #000000;
+    z-index: 10;
+    -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.5);
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.5);   
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.5);
+    transition: all 300ms ease-in;
+    transform: scale(1.1);
+    
+
+}
+
+    
+.empathizeContent,.defineContent,.ideateContent, .prototypeContent, .testContent{
+    /*visibility:hidden;*/
+    display:none;
+    margin-top: 0px;
+    padding-top: 0px;
+}
+
+/*.empathize:hover{
+    background-image:url("empathy.png");
+    background-size:100% 
+}
+.define:hover{
+    background-image:url("define.png");
+    background-size:100% 
+}*/
+/*.word{
+    visibility:visible;
+
+}*/
+
+/*.empathize:hover > span, .define:hover > span{
+    visibility:hidden;
+}*/
+.empathize:hover ~ .empathizeContent{
+     visibility: visible;
+      display:block;
+}
+
+.define:hover ~ .defineContent{
+     visibility: visible;
+      display:block;
+}
+
+.ideate:hover ~ .ideateContent, .prototype:hover ~.prototypeContent, .test:hover ~ .testContent{
+     visibility: visible;
+     display:block;
+}
+
+.box{
+  width:500px; height:100px;  
+  border:solid 5px #000;
+  border-color:#000 transparent transparent transparent;
+  border-radius: 50%/100px 200px 0 0;
+  display:none;
+}
+
+.empathize:hover .box{
+
+    /*background-color: yellow;*/
+     /*display:block;*/
+     visibility: visible;
+}
