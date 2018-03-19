@@ -9,7 +9,7 @@ var isStop = false;
 function preload() {
   imgs[0] = loadImage("test.jpg");
   imgs[1] = loadImage("test.jpg");
-  imgs[2] = loadImage("test3.png");
+  imgs[2] = loadImage("test.jpg");
 }
 
 function setup() {
