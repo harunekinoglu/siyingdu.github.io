@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- my CSS -->
+<!-- <link rel="stylesheet" href="filterButton.css"> -->
+<!-- my JS -->
+<!-- <script src="filterButton.js"></script> -->
+
+<style>
+
+/* Put your css in here */
+
+.left{
+ float: left; 
+ width: 30%;
+ height: 200px;
+ border: 1px solid black;
+}
+
+.internal{
+ width: 31.75%;
+ height: 100%;
+ border: 1px solid black;
+ display: inline-block;
+}
+
+.center{
+ float: left; 
+ width: 38.9%;
+ height: 200px;
+ border: 1px solid black;
+ margin: 1px;
+ overflow: hidden;
+ /*will change this to hidden later to deny scolling to user*/
+ white-space: nowrap;
+}
+
+.right{
+ float: right; 
+ width: 30%;
+ height: 200px;
+ border: 1px solid black;
+}
+
+</style>
+    
+<title>Testing</title>
+</head>
+<header>
+
+</header>
+
+<body>
+<div class="progress-meter">
+                            <span class="progress-meter__segment progress-meter__segment--completed" data-progress-index="1">1</span>
+                            <span class="progress-meter__segment " data-progress-index="2">2</span>
+                            <span class="progress-meter__segment " data-progress-index="3">3</span>
+                            <span class="progress-meter__segment " data-progress-index="4">4</span>
+                            <span class="progress-meter__segment " data-progress-index="5">5</span>
+                            <span class="progress-meter__segment " data-progress-index="6">6
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="7">7
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="8">8
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="9">9
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="10">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="11">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="12">
+                </span>
+                    </div>
+
+    
+    <div class="left">
+      left div
+      <button id="left-button">
+        swipe left
+      </button>
+    </div>
+     
+
+     <div class="center" id="content">
+      <div class=internal>
+        div 1
+      </div>
+       <div class=internal>
+        div 2
+      </div>
+       <div class=internal>
+        div 3
+      </div>
+       <div class=internal>
+        div 4
+      </div>
+       <div class=internal>
+        div 5
+      </div>
+       <div class=internal>
+        div 6
+      </div>
+       <div class=internal>
+        div 7
+      </div>
+       <div class=internal>
+        div 8
+      </div>
+     </div>
+    <div class="right">
+    <button id="right-button">
+        swipe right
+      </button>
+      right div
+    </div>
+    
+  <script data-require="jquery" data-semver="2.1.1" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  
+  
+  <script>
+   $('#right-button').click(function() {
+      event.preventDefault();
+      $('#content').animate({
+        scrollLeft: "+=300px"
+      }, "slow");
+   });
+   
+     $('#left-button').click(function() {
+      event.preventDefault();
+      $('#content').animate({
+        scrollLeft: "-=300px"
+      }, "slow");
+   });
+</script>
+
+</body>
+</html>
+
+
+

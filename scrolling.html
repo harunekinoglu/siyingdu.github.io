@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- my CSS -->
+<!-- <link rel="stylesheet" href="filterButton.css"> -->
+<!-- my JS -->
+<!-- <script src="filterButton.js"></script> -->
+
+<style>
+
+body {
+  margin:0;
+  font-family:Georgia;
+}
+
+#container .box {
+  width:100vw;
+  height:100vh;
+  display:inline-block;
+  position:relative;
+}
+
+#container .box > div {
+  width:100px;
+  height:100px;
+  font-size:96px;
+  color:#FFF;
+  position:absolute;
+  top:50%;
+  left:50%;
+  margin:-50px 0 0 -50px;
+  line-height:.7;
+  font-weight:bold;
+}
+
+#container {
+  overflow-y:scroll;
+  overflow-x:hidden;
+  transform: rotate(270deg) translateX(-100%);
+  transform-origin: top left;
+  background-color:#999;
+  position:absolute;
+  width:100vh;
+  height:100vw;
+}
+#container2 {
+  transform: rotate(90deg) translateY(-100vh);
+  transform-origin: top left;
+  white-space:nowrap;
+  font-size:0;
+}
+
+.one {
+  background-color: #45CCFF;
+}
+.two {
+  background-color: #49E83E;
+}
+.three {
+  background-color: #EDDE05;
+}
+.four {
+  background-color: #E84B30;
+}
+
+.section-down-arrow-wrap {
+    cursor: pointer;
+}
+/* Translating the content's X ruines the scrollbar length. */
+
+/*#container {
+  overflow:scroll;
+  transform: rotate(90deg) translateY(-100%);
+  transform-origin: top left;
+  background-color:#999;
+  position:absolute;
+  width:100vh;
+  height:100vw;
+}
+#container2 {
+  transform: rotate(-90deg) translateX(-100vw);
+  transform-origin: top left;
+  white-space:nowrap;
+}*/
+
+
+</style>
+    
+<title>Testing</title>
+</head>
+<header>
+
+</header>
+
+<body>
+<div class="progress-meter">
+                            <span class="progress-meter__segment progress-meter__segment--completed" data-progress-index="1">1</span>
+                            <span class="progress-meter__segment " data-progress-index="2">2</span>
+                            <span class="progress-meter__segment " data-progress-index="3">3</span>
+                            <span class="progress-meter__segment " data-progress-index="4"></span>
+                            <span class="progress-meter__segment " data-progress-index="5">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="6">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="7">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="8">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="9">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="10">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="11">
+                </span>
+                            <span class="progress-meter__segment " data-progress-index="12">
+                </span>
+                    </div>
+
+<div id="container">
+
+  <div id="container2">
+    <div class="box one fullscreen"><div>1<div class="section-down-arrow-wrap scroller">CLICK</div></div></div>
+    <div class="box two fullscreen"><div><div class="section-down-arrow-wrap scroller">CLICK</div>2</div></div>
+    <div class="box three fullscreen"><div>3</div></div>
+    <div class="box four"><div>Last</div></div>
+  </div>
+</div>
+
+<script>
+
+$(document).ready(function () {
+
+    $('.scroller').click(function () {
+
+        var fuller = $(this).closest('.fullscreen').next(),
+            section = $(this).closest('.section');
+
+        section.animate({
+            scrollTop: section.scrollTop() + fuller.offset().top
+        }, 700);
+
+    });
+
+});
+</script>
+</body>
+
+
+</html>

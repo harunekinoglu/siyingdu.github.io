@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+<!-- my CSS -->
+<!-- <link rel="stylesheet" href="filterButton.css"> -->
+<!-- my JS -->
+<!-- <script src="filterButton.js"></script> -->
+
+<style>
+
+/*#myVideo,canvas{
+position:absolute;
+left:0px;
+top:0px;
+}*/
+
+.videoDiv{
+  position:absolute;
+}
+
+.drawingDiv1{
+  position:relative;
+}
+
+.videoControl{
+  position:absolute;
+}
+
+#div1, #div2 {
+    /*float: left;*/
+    width: 100px;
+    height: 35px;
+/*    margin: 10px;
+    padding: 10px;*/
+    border: 1px solid black;
+}
+
+
+</style>
+    
+<title>Testing</title>
+</head>
+<header>
+
+</header>
+
+<body>
+<div class="videoDiv">
+<div>
+<video class="videoDiv" id="myVideo" width="400" height = "400">  
+    <source src="testing.mp4" type="video/mp4">
+</video>
+</div>
+
+<div class="drawingDiv1">
+<canvas id="myCanvas" width ="400" height="200"></canvas>
+
+<img src="designerUser.png" draggable="true" ondragstart="drag(event)" id="drag1" width="26" height="11">
+<img src="audio.png" draggable="true" ondragstart="drag(event)" id="drag1" width="26" height="11">
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+<div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<button class="videoControl">testing</button>
+</div>
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+	var buttonObject =
+{
+  width: 70,
+  height: 70,
+  x: 0,
+  y: 0,
+
+      
+  centerX: function()
+  {
+    return this.x + (this.width / 2);
+  },
+  centerY: function()
+  {
+    return this.y + (this.height / 2);
+  },
+  halfWidth: function()
+  {
+    return this.width / 2;
+  },
+  halfHeight: function()
+  {
+    return this.height / 2;
+  }
+};
+
+var canvas = document.getElementById("myCanvas");
+var context = canvas.getContext("2d");
+
+var video = document.getElementById("myVideo");
+
+
+var button = Object.create(buttonObject);
+button.x = 30;
+button.y = 100;
+
+
+window.addEventListener("mousemove",onMouseMove,false);
+window.addEventListener("mousedown",onMouseDown,false);
+
+var clicked = false; 
+
+var mouseX;
+var mouseY;
+var buttonVX = 5;
+
+
+
+function onMouseDown(event)
+{
+clicked = true;
+}
+
+
+function onMouseMove(event)			{ 
+mouseX = event.pageX - canvas.offsetLeft; 
+mouseY = event.pageY - canvas.offsetTop;
+}
+
+main();
+function main() {
+window.setTimeout(main,33);
+context.clearRect(0,0,canvas.width,canvas.height);
+
+
+context.fillStyle = "#fff";
+context.fillRect(button.x,button.y,button.width,button.height);
+
+
+
+var vx = mouseX - button.centerX();				
+var vy = mouseY - button.centerY();
+
+video.play();
+
+  
+var combinedHalfWidths = 1 + button.halfWidth();
+var combinedHalfHeights = 1 + button.halfHeight();
+
+  if(Math.abs(vx) < combinedHalfWidths)
+  {
+    if(Math.abs(vy) < combinedHalfHeights)
+    { 
+    if(clicked)  {
+ 
+   video.currentTime = 10;
+ 
+   video.play();
+ 
+   clicked = false;
+ 
+}
+   
+    }
+
+  
+  }
+}
+
+// drag and drop
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
+}
+</script>
+
+</html>
