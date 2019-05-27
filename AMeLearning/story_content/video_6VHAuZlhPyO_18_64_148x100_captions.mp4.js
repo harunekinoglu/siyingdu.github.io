@@ -1,0 +1,1 @@
+window.globalProvideData('caption', '{"data":"WEBVTT%0D%0AKind:%20captions%0D%0ASource:%20Articulate%20Closed%20Captions%20Editor%0D%0ASource%20Version:%206.5.16548.0%0D%0A%0D%0A00:00:00.064%20--%3E%2000:00:03.456%0D%0AThen%20we%20select%20Main%20Valve%20as%20the%20value%20and%20click%20the%20Search%20button.%0D%0A%0D%0A"}')
